@@ -12,4 +12,9 @@ cd .\apps\backend
 
 ## running frontend
 
+cd .\apps\frontend
+npm run dev
+
+## test frontend
+
 todo
