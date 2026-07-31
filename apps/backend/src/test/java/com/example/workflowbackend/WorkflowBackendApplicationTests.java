@@ -9,5 +9,4 @@ class WorkflowBackendApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

@@ -13,10 +13,10 @@ Create the initial project structure for the workflow orchestration MVP, includi
 
 **Acceptance Criteria**
 
-- [ ] A Spring Boot project is initialized and runs locally.
-- [ ] A React app is initialized and runs locally.
-- [ ] The project structure clearly separates backend and frontend code.
-- [ ] A README describes how to start both applications.
+- [x] A Spring Boot project is initialized and runs locally.
+- [x] A React app is initialized and runs locally.
+- [x] The project structure clearly separates backend and frontend code.
+- [x] A README describes how to start both applications.
 
 ---
 
@@ -29,11 +29,11 @@ Model the core entities needed to represent workflows, executions, and step resu
 
 **Acceptance Criteria**
 
-- [ ] A Workflow entity exists.
-- [ ] A WorkflowExecution entity exists.
-- [ ] An ExecutionStep entity exists.
-- [ ] Relationships between entities are defined clearly.
-- [ ] The model supports status values such as pending, running, completed, and failed.
+- [x] A Workflow entity exists.
+- [x] A WorkflowExecution entity exists.
+- [x] An ExecutionStep entity exists.
+- [x] Relationships between entities are defined clearly.
+- [x] The model supports status values such as pending, running, completed, and failed.
 
 ---
 
