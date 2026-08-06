@@ -1,9 +1,14 @@
 # workflow
 
+## running db from docker
+
+docker compose up --build
+
 ## running backend
 
 cd .\apps\backend
-.\gradlew.bat bootRun
+.\gradlew.bat bootRun - with h2
+.\gradlew.bat bootRun --args='--spring.profiles.active=docker' - with docker
 
 ## test backend
 

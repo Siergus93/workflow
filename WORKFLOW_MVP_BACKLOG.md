@@ -46,10 +46,10 @@ Configure PostgreSQL and persistence for the workflow engine.
 
 **Acceptance Criteria**
 
-- [ ] PostgreSQL is configured for local development.
-- [ ] JPA repositories are created for core entities.
-- [ ] Database tables are created successfully.
-- [ ] The application starts with the database connection configured.
+- [x] PostgreSQL is configured for local development.
+- [x] JPA repositories are created for core entities.
+- [x] Database tables are created successfully.
+- [x] The application starts with the database connection configured.
 
 ---
 
