@@ -23,3 +23,6 @@ npm run dev
 ## test frontend
 
 todo
+
+## Workflow definitions
+Sample workflows live in `apps/backend/src/main/resources/workflows/`. See `docs/workflow-json-schema.md` for the JSON format.

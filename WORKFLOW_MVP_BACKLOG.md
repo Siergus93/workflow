@@ -64,10 +64,10 @@ Define a simple JSON schema for workflow definitions that can be loaded by the e
 
 **Acceptance Criteria**
 
-- [ ] A sample workflow JSON file is added to the repository.
-- [ ] The format supports workflow name, description, and steps.
-- [ ] Each step includes a type and configuration fields.
-- [ ] The schema is documented for future contributors.
+- [x] A sample workflow JSON file is added to the repository.
+- [x] The format supports workflow name, description, and steps.
+- [x] Each step includes a type and configuration fields.
+- [x] The schema is documented for future contributors.
 
 ---
 

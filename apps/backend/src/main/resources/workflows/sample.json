@@ -1,0 +1,24 @@
+{
+  "name": "sample-workflow",
+  "description": "A minimal sample workflow for local testing",
+  "steps": [
+    {
+      "type": "log",
+      "config": {
+        "message": "Workflow started"
+      }
+    },
+    {
+      "type": "delay",
+      "config": {
+        "seconds": 1
+      }
+    },
+    {
+      "type": "log",
+      "config": {
+        "message": "Workflow completed"
+      }
+    }
+  ]
+}
