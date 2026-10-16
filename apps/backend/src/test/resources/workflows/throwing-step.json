@@ -1,0 +1,11 @@
+{
+  "name": "throwing-step",
+  "description": "Test fixture: a handler that throws must fail the run and be recorded",
+  "steps": [
+    {
+      "name": "boom",
+      "type": "explode",
+      "config": {}
+    }
+  ]
+}

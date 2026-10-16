@@ -3,18 +3,21 @@
   "description": "A minimal sample workflow for local testing",
   "steps": [
     {
+      "name": "start",
       "type": "log",
       "config": {
         "message": "Workflow started"
       }
     },
     {
+      "name": "wait",
       "type": "delay",
       "config": {
         "seconds": 1
       }
     },
     {
+      "name": "finish",
       "type": "log",
       "config": {
         "message": "Workflow completed"

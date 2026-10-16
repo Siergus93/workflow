@@ -31,6 +31,9 @@ public class ExecutionStepResult {
 
   private String stepName;
 
+  @Column(nullable = false)
+  private int stepOrder;
+
   @Enumerated(EnumType.STRING)
   private ExecutionStatus status = ExecutionStatus.PENDING;
 
@@ -39,7 +42,9 @@ public class ExecutionStepResult {
 
   private LocalDateTime finishedAt;
 
+  @Column(length = 4000)
   private String output;
 
+  @Column(length = 4000)
   private String errorMessage;
 }

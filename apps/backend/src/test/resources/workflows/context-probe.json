@@ -1,0 +1,20 @@
+{
+  "name": "context-probe",
+  "description": "Test fixture: verifies a step output is visible to a later step via the shared context",
+  "steps": [
+    {
+      "name": "seed",
+      "type": "log",
+      "config": {
+        "message": "seeded-value"
+      }
+    },
+    {
+      "name": "read",
+      "type": "capture",
+      "config": {
+        "key": "message"
+      }
+    }
+  ]
+}

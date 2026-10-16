@@ -76,15 +76,20 @@ Define a simple JSON schema for workflow definitions that can be loaded by the e
 **Labels:** backend, engine
 
 **Description**
-Build the engine that executes workflow steps sequentially and tracks shared context.
+Build the engine that executes workflow steps sequentially and tracks shared context. See `docs/issue-5-engine-plan.md` (including its Phase 0 blockers).
 
 **Acceptance Criteria**
 
-- [ ] A workflow can be loaded from JSON.
-- [ ] Steps execute in order.
-- [ ] Shared workflow context is passed between steps.
-- [ ] Execution status updates correctly during runtime.
-- [ ] A failed step stops execution and records the failure.
+- [x] A workflow definition is loaded from `classpath*:workflows/*.json` and validated (name, steps, and each step's type/config).
+- [x] Steps execute sequentially in JSON order, and persisted step results record that order (`stepOrder`).
+- [x] A shared workflow context is created per run and step outputs are written into it for later steps to read.
+- [x] `WorkflowExecution.status` transitions PENDING -> RUNNING -> COMPLETED/FAILED with `startedAt`/`finishedAt` set.
+- [x] A failed step (handler error or unsupported type) stops execution; the failed step and the execution are persisted as FAILED with a clear error message (each repository save commits independently).
+- [x] A workflow can run without being pre-registered; the `Workflow` row is found or created by name with `createdAt` set.
+
+**Notes**
+- Optional step `name` (fallback `type#index`) was added to the Issue 4 schema/sample in plan Phase 0.
+- Covered by `WorkflowEngineTest`, `WorkflowEnginePersistenceTest`, `WorkflowEngineStepHandlingTest`, and the loader/context/registry unit tests.
 
 ---
 
@@ -101,6 +106,9 @@ Implement the first built-in step types for the MVP.
 - [ ] Each step type can be executed independently.
 - [ ] Step outputs are written into the workflow context.
 - [ ] Unsupported step types fail gracefully with a clear error.
+
+**Notes**
+- Issue 5 ships the minimum handlers required by `sample.json` (`log`, `delay`); this issue delivers the full set of three or more.
 
 ---
 
@@ -134,6 +142,7 @@ Save workflow run history and detailed step results for later inspection.
 
 - [ ] Each workflow execution is stored in the database.
 - [ ] Each step result is stored with status and timestamps.
+- [ ] Step results preserve their execution order (`stepOrder`).
 - [ ] Execution history can be retrieved through the API.
 - [ ] Failed runs preserve enough detail for debugging.
 

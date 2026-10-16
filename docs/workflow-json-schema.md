@@ -13,6 +13,7 @@ Each step has:
 
 | Field | Type | Required | Description |
 |---|---|---|---|
+| `name` | string | No | Step identifier used in execution results. Defaults to `<type>#<index>` when omitted. |
 | `type` | string | Yes | Identifier of the step handler (e.g., "log", "delay", "http", "script"). |
 | `config` | object | Yes | Step-specific configuration passed to the handler. Keys depend on `type`. |
 
