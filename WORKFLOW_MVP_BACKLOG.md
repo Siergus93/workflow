@@ -98,17 +98,20 @@ Build the engine that executes workflow steps sequentially and tracks shared con
 **Labels:** backend, engine
 
 **Description**
-Implement the first built-in step types for the MVP.
+Implement the first built-in step types for the MVP. See `docs/issue-6-step-handlers-plan.md`.
 
 **Acceptance Criteria**
 
-- [ ] At least three built-in step types are implemented.
-- [ ] Each step type can be executed independently.
-- [ ] Step outputs are written into the workflow context.
-- [ ] Unsupported step types fail gracefully with a clear error.
+- [x] At least three built-in step types are implemented.
+- [x] Each step type can be executed independently.
+- [x] Step outputs are written into the workflow context.
+- [x] Unsupported step types fail gracefully with a clear error.
 
 **Notes**
 - Issue 5 ships the minimum handlers required by `sample.json` (`log`, `delay`); this issue delivers the full set of three or more.
+- Built-in types are now `log`, `delay`, `set` (writes a value into the shared context) and `http` (GET/POST via the JDK `HttpClient`), four in total.
+- Covered by `SetStepHandlerTest`, `HttpStepHandlerTest` (local in-JVM server, no network), the updated `BuiltInStepHandlersTest`, and a `set-context` engine test proving step output reaches a later step.
+- Built-in types and their config are documented in `docs/workflow-json-schema.md`.
 
 ---
 

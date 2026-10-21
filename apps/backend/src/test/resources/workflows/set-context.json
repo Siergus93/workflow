@@ -1,0 +1,21 @@
+{
+  "name": "set-context",
+  "description": "Test fixture: a 'set' step writes a value that a later step reads from the shared context",
+  "steps": [
+    {
+      "name": "seed",
+      "type": "set",
+      "config": {
+        "key": "greeting",
+        "value": "hello-from-set"
+      }
+    },
+    {
+      "name": "read",
+      "type": "capture",
+      "config": {
+        "key": "greeting"
+      }
+    }
+  ]
+}

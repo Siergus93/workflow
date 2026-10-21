@@ -13,9 +13,11 @@ class BuiltInStepHandlersTest {
   @Autowired private StepHandlerRegistry registry;
 
   @Test
-  void registersLogAndDelay() {
+  void registersAllBuiltInHandlers() {
     assertThat(registry.find("log")).isPresent();
     assertThat(registry.find("delay")).isPresent();
-    assertThat(registry.types()).contains("log", "delay");
+    assertThat(registry.find("set")).isPresent();
+    assertThat(registry.find("http")).isPresent();
+    assertThat(registry.types()).contains("log", "delay", "set", "http");
   }
 }

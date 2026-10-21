@@ -43,6 +43,23 @@ class WorkflowEngineStepHandlingTest {
   }
 
   @Test
+  void setStepOutputIsVisibleToLaterSteps() {
+    WorkflowExecution execution = engine.execute("set-context");
+
+    assertThat(execution.getStatus()).isEqualTo(ExecutionStatus.COMPLETED);
+    assertThat(execution.getStepResults()).hasSize(2);
+
+    ExecutionStepResult seed = execution.getStepResults().get(0);
+    ExecutionStepResult read = execution.getStepResults().get(1);
+    assertThat(seed.getStepName()).isEqualTo("seed");
+    // 'seed' (set) wrote context key "greeting"; 'read' (capture) read it back.
+    assertThat(seed.getOutput()).contains("hello-from-set");
+    assertThat(read.getStepName()).isEqualTo("read");
+    assertThat(read.getStatus()).isEqualTo(ExecutionStatus.COMPLETED);
+    assertThat(read.getOutput()).contains("hello-from-set");
+  }
+
+  @Test
   void recordsFailureWhenHandlerThrows() {
     WorkflowExecution execution = engine.execute("throwing-step");
 
